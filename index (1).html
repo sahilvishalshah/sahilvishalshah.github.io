@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAHIL VISHAL SHAH — Mechanical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;500;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #080C0F;
+    --panel:     #0D1318;
+    --border:    #1E2D20;
+    --amber:     #E8A020;
+    --amber-dim: #7A5310;
+    --green:     #3DFF6E;
+    --green-dim: #1A4A28;
+    --steel:     #8A9BA8;
+    --text:      #C8D8C0;
+    --white:     #EEF2EE;
+    --red:       #FF4040;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCANLINE OVERLAY ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+    background: rgba(8,12,15,0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-id {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .logo-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--amber-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(232,160,32,0.06);
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  }
+
+  .logo-circle:hover {
+    border-color: var(--amber);
+    background: rgba(232,160,32,0.14);
+    transform: rotate(8deg);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.6rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--steel);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green);
+    letter-spacing: 0.08em;
+  }
+
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 80px 2rem 4rem;
+    overflow: hidden;
+  }
+
+  /* Grid background */
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+  }
+
+  /* RETICLE — the signature element */
+  .reticle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(520px, 90vw);
+    height: min(520px, 90vw);
+    pointer-events: none;
+  }
+
+  .reticle-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--amber-dim);
+    border-radius: 50%;
+    animation: reticle-spin 20s linear infinite;
+  }
+
+  .reticle-ring::before, .reticle-ring::after {
+    content: '';
+    position: absolute;
+    background: var(--amber-dim);
+  }
+
+  /* tick marks */
+  .reticle-ring::before {
+    width: 1px; height: 16px;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .reticle-ring::after {
+    width: 1px; height: 16px;
+    bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .reticle-inner {
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(232,160,32,0.2);
+    border-radius: 50%;
+    animation: reticle-spin 12s linear infinite reverse;
+  }
+
+  /* crosshair lines */
+  .reticle-h, .reticle-v {
+    position: absolute;
+    background: var(--amber-dim);
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+
+  .reticle-v {
+    top: 0; bottom: 0; left: 50%;
+    width: 1px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  /* corner brackets */
+  .reticle-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--amber);
+    border-style: solid;
+  }
+
+  .reticle-corner.tl { top: 60px; left: 60px; border-width: 2px 0 0 2px; }
+  .reticle-corner.tr { top: 60px; right: 60px; border-width: 2px 2px 0 0; }
+  .reticle-corner.bl { bottom: 60px; left: 60px; border-width: 0 0 2px 2px; }
+  .reticle-corner.br { bottom: 60px; right: 60px; border-width: 0 2px 2px 0; }
+
+  @keyframes reticle-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Hero content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--amber);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .hero-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name span { color: var(--amber); }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', monospace;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--steel);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tag.highlight {
+    border-color: var(--amber);
+    color: var(--amber);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 7px 16px;
+    background: rgba(232,160,32,0.1);
+    box-shadow: 0 0 12px rgba(232,160,32,0.25);
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+  }
+
+  .contact-link {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--steel);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--amber); }
+  .contact-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* scroll cue */
+  .scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--amber-dim);
+    letter-spacing: 0.1em;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--amber);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ─── EDUCATION ─── */
+  .edu-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    background: var(--panel);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--amber);
+  }
+
+  .edu-card:hover { border-color: var(--amber-dim); }
+
+  .edu-period {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+  }
+
+  .edu-institution {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-degree {
+    font-size: 0.85rem;
+    color: var(--steel);
+    margin-bottom: 0.6rem;
+  }
+
+  .edu-score {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+    color: var(--green);
+  }
+
+  .edu-score small {
+    font-size: 0.65rem;
+    color: var(--steel);
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  /* ─── EXPERIENCE / INTERNSHIP ─── */
+  .exp-block {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-block::after {
+    content: 'INTERNSHIP';
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--amber-dim);
+    letter-spacing: 0.15em;
+    border: 1px solid var(--amber-dim);
+    padding: 2px 8px;
+  }
+
+  .exp-period {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-company {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-role {
+    font-size: 0.85rem;
+    color: var(--steel);
+    margin-bottom: 1rem;
+  }
+
+  .exp-location {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  .exp-desc {
+    font-size: 0.92rem;
+    color: var(--text);
+    border-left: 2px solid var(--green-dim);
+    padding-left: 1rem;
+  }
+
+  /* ─── PROJECTS ─── */
+  .project-cards {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 1.8rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(232,160,32,0.04), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .project-card:hover { border-color: var(--amber-dim); }
+  .project-card:hover::before { opacity: 1; }
+
+  .project-period {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.3rem;
+  }
+
+  .project-supervisor {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--steel);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+
+  .project-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    padding: 4px 10px;
+    border: 1px solid var(--green-dim);
+    color: var(--green);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  /* ─── SKILLS ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 1.5rem;
+  }
+
+  .skill-group-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-pill {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-pill:hover {
+    border-color: var(--amber-dim);
+    color: var(--amber);
+  }
+
+  /* ─── CERTIFICATIONS ─── */
+  .cert-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-item {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: border-color 0.25s;
+  }
+
+  .cert-item:hover { border-color: var(--amber-dim); }
+
+  .cert-icon {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    color: var(--amber);
+  }
+
+  .cert-name {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .cert-issuer {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--steel);
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+
+  /* ─── TEAM ─── */
+  .team-block {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .team-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+  }
+
+  .team-role {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+
+  .team-desc {
+    font-size: 0.88rem;
+    color: var(--text);
+    border-left: 2px solid var(--amber-dim);
+    padding-left: 1rem;
+  }
+
+  .team-period {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  /* ─── COURSEWORK ─── */
+  .course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .course-chip {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    color: var(--steel);
+    letter-spacing: 0.05em;
+    background: var(--panel);
+    transition: all 0.2s;
+  }
+
+  .course-chip:hover {
+    border-color: var(--green-dim);
+    color: var(--green);
+    background: rgba(61,255,110,0.03);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--amber-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 2rem;
+  }
+
+  /* ─── HUD CORNERS (decorative on cards) ─── */
+  .hud-corners {
+    position: relative;
+  }
+
+  .hud-corners::before,
+  .hud-corners::after {
+    content: '';
+    position: absolute;
+    width: 8px; height: 8px;
+    border-color: var(--amber);
+    border-style: solid;
+  }
+
+  .hud-corners::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .hud-corners::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+  /* ─── MOBILE NAV ─── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--amber);
+    transition: 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: rgba(8,12,15,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    z-index: 999;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--steel);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-menu a:hover { color: var(--amber); }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .nav-status { display: none; }
+    .hamburger { display: flex; }
+
+    .project-card {
+      grid-template-columns: 1fr;
+    }
+
+    .team-block {
+      grid-template-columns: 1fr;
+    }
+
+    .reticle {
+      width: 80vw; height: 80vw;
+    }
+
+    .reticle-corner.tl { top: 30px; left: 30px; }
+    .reticle-corner.tr { top: 30px; right: 30px; }
+    .reticle-corner.bl { bottom: 30px; left: 30px; }
+    .reticle-corner.br { bottom: 30px; right: 30px; }
+  }
+
+  /* ─── FADE IN ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-circle" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">SVS</div>
+  <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#certs">Certs</a></li>
+  </ul>
+  <div class="nav-status">
+    <span class="status-dot"></span>
+    ACTIVE — VIT VELLORE
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#team" onclick="closeMenu()">Team</a>
+  <a href="#certs" onclick="closeMenu()">Certifications</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Targeting reticle -->
+  <div class="reticle">
+    <div class="reticle-ring">
+      <div class="reticle-h"></div>
+      <div class="reticle-v"></div>
+    </div>
+    <div class="reticle-inner"></div>
+    <div class="reticle-corner tl"></div>
+    <div class="reticle-corner tr"></div>
+    <div class="reticle-corner bl"></div>
+    <div class="reticle-corner br"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">[ PERSONNEL FILE — UNCLASSIFIED ]</div>
+    <h1 class="hero-name">SAHIL<br><span>VISHAL</span><br>SHAH</h1>
+    <div class="hero-title">B.Tech · Mechanical Engineering · VIT Vellore</div>
+    <div class="hero-tags">
+      <span class="tag highlight">CFD</span>
+      <span class="tag highlight">CAD</span>
+      <span class="tag highlight">FEA</span>
+    </div>
+    <div class="hero-contacts">
+      <a class="contact-link" href="tel:+919313218587">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        +91-93132-18587
+      </a>
+      <a class="contact-link" href="mailto:sahilshah4040@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        sahilshah4040@gmail.com
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/sahilvishalshah" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/sahilvishalshah
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    ▼ SCROLL
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <div class="section-label">01 // EDUCATION</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Academic Record</h2>
+  <div class="edu-cards">
+    <div class="edu-card reveal hud-corners">
+      <div class="edu-period">JUL 2024 — PRESENT</div>
+      <div class="edu-institution">Vellore Institute of Technology</div>
+      <div class="edu-degree">Bachelor of Technology — Mechanical Engineering<br>Vellore, India</div>
+      <div class="edu-score">8.43 <small>CGPA</small></div>
+    </div>
+    <div class="edu-card reveal hud-corners">
+      <div class="edu-period">2024</div>
+      <div class="edu-institution">Indian School Al Maabela</div>
+      <div class="edu-degree">Higher Secondary Certificate (HSC)<br>Muscat, Oman</div>
+      <div class="edu-score">86% <small>PERCENTAGE</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <div class="section-label">02 // FIELD EXPERIENCE</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Internship</h2>
+  <div class="exp-block reveal hud-corners">
+    <div class="exp-period">JUN 2025 — JUL 2025</div>
+    <div class="exp-company">Gulf Petrochemical Services and Trading LLC.</div>
+    <div class="exp-role">Technical Intern</div>
+    <div class="exp-location">📍 MUSCAT, OMAN</div>
+    <div class="exp-desc">
+      Assisted in inspection, maintenance, and basic troubleshooting of diesel engines and light vehicle systems in a professional workshop environment.
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="section-label">03 // MISSIONS / PROJECTS</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Research Projects</h2>
+  <div class="project-cards">
+
+    <div class="project-card reveal hud-corners">
+      <div>
+        <div class="project-period">JAN 2025 — PRESENT</div>
+        <div class="project-title">Enhancement of Performance of a Scramjet Engine using CFD</div>
+        <div class="project-supervisor">UNDER DR. SENTHILKUMAR P · School of Mechanical Engineering, VIT Vellore</div>
+        <div class="project-desc">
+          Modifying scramjet engine geometry to study shock-boundary layer interactions and assess their impact on engine efficiency and mass flow rate. Parametric isolator height studies conducted in ANSYS Fluent with 0.40 in geometry emerging as optimal — achieving 67.30% pressure recovery and mass conservation error of 0.0046%.
+        </div>
+      </div>
+      <div class="project-badge">ACTIVE</div>
+    </div>
+
+    <div class="project-card reveal hud-corners">
+      <div>
+        <div class="project-period">SEP 2025 — PRESENT</div>
+        <div class="project-title">CFD Simulation — Heat Transfer from a Gun Barrel</div>
+        <div class="project-supervisor">UNDER DR. RAJESH KANNA · CO₂ Research & Green Technologies Centre, VIT Vellore</div>
+        <div class="project-desc">
+          Studying heat and mass transfer mechanisms in a 5.56mm NATO-caliber gun barrel to identify and develop designs for optimal thermal efficiency. Coupled steady-state thermal and static structural analyses across multiple fin configurations (T, L, Y fins), validated against Chaturvedi's published benchmarks. AISI 4340 steel barrel modelled in SolidWorks and meshed in ANSYS Workbench.
+        </div>
+      </div>
+      <div class="project-badge">ACTIVE</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <div class="section-label">04 // TECHNICAL ARSENAL</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Technical Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">CAD & Design</div>
+      <div class="skill-list">
+        <span class="skill-pill">SolidWorks</span>
+        <span class="skill-pill">Fusion 360</span>
+        <span class="skill-pill">Engineering Drawing</span>
+        <span class="skill-pill">GD&T</span>
+        <span class="skill-pill">Assembly Modelling</span>
+        <span class="skill-pill">Drafting</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Simulation & Analysis</div>
+      <div class="skill-list">
+        <span class="skill-pill">ANSYS Fluent</span>
+        <span class="skill-pill">ANSYS Mechanical</span>
+        <span class="skill-pill">ICEM CFD</span>
+        <span class="skill-pill">CFD Fundamentals</span>
+        <span class="skill-pill">FEA</span>
+        <span class="skill-pill">Steady-State Thermal</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Programming & Data</div>
+      <div class="skill-list">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">NumPy</span>
+        <span class="skill-pill">Pandas</span>
+        <span class="skill-pill">Matplotlib</span>
+        <span class="skill-pill">MATLAB</span>
+        <span class="skill-pill">Engineering Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="skill-group-title">Domain Knowledge</div>
+      <div class="skill-list">
+        <span class="skill-pill">Thermodynamics</span>
+        <span class="skill-pill">Fluid Mechanics</span>
+        <span class="skill-pill">Strength of Materials</span>
+        <span class="skill-pill">Engineering Mechanics</span>
+        <span class="skill-pill">Rover Mobility</span>
+        <span class="skill-pill">Terramechanics</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-header reveal">
+    <div class="section-label">05 // UNIT / TEAM</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Team Experience</h2>
+  <div class="team-block reveal hud-corners">
+    <div>
+      <div class="team-name">Team Vyadh 🛸</div>
+      <div class="team-role">MECHANICAL SENIOR CORE · VIT SPACE ROVER TEAM</div>
+      <div class="team-desc">
+        Involved in mechanical system development for a competition space rover — focusing on mechanism research, structural design, fabrication, and system integration for IRC 2026 mission objectives. Performed FEA on custom TPU 64D wheel designs in ANSYS Student, achieving a safety factor of ~273 with 15.5% lower deformation versus legacy designs.
+      </div>
+    </div>
+    <div class="team-period">MAY 2025 — PRESENT</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- COURSEWORK -->
+<section id="coursework">
+  <div class="section-header reveal">
+    <div class="section-label">06 // COURSEWORK</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Core Coursework</h2>
+  <div class="course-grid reveal">
+    <span class="course-chip">Engineering Mechanics</span>
+    <span class="course-chip">Strength of Materials</span>
+    <span class="course-chip">Thermodynamics</span>
+    <span class="course-chip">Fluid Mechanics</span>
+    <span class="course-chip">Engineering Drawing</span>
+    <span class="course-chip">CAD/CAM Fundamentals</span>
+    <span class="course-chip">Rover Mobility Basics</span>
+    <span class="course-chip">Python for Engineering Analysis</span>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-header reveal">
+    <div class="section-label">07 // CREDENTIALS</div>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title reveal">Certifications</h2>
+  <div class="cert-list">
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">CAD & CAM Simulation Challenge</div>
+        <div class="cert-issuer">AUTODESK</div>
+      </div>
+    </div>
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">Fusion 360 Workshop & Hackathon</div>
+        <div class="cert-issuer">AUTODESK</div>
+      </div>
+    </div>
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">Simulation Workshop</div>
+        <div class="cert-issuer">ANSYS</div>
+      </div>
+    </div>
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">Vortex 360 Hackathon</div>
+        <div class="cert-issuer">AUTODESK</div>
+      </div>
+    </div>
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">Python Programming</div>
+        <div class="cert-issuer">BRIGHTCHAMPS</div>
+      </div>
+    </div>
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">App Development</div>
+        <div class="cert-issuer">BRIGHTCHAMPS</div>
+      </div>
+    </div>
+
+    <div class="cert-item reveal">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
+      </svg>
+      <div>
+        <div class="cert-name">Web Development</div>
+        <div class="cert-issuer">BRIGHTCHAMPS</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>SAHIL VISHAL SHAH · B.TECH MECHANICAL ENGINEERING · VIT VELLORE</div>
+  <div style="margin-top:8px; color: var(--border);">[ END OF FILE ]</div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (entry.target.dataset.delay || 0));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealEls.forEach((el, i) => {
+    el.dataset.delay = i % 4;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
