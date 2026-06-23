@@ -672,77 +672,6 @@
     margin-top: 2px;
   }
 
-  /* ─── TEAM ─── */
-  .team-block {
-    border: 1px solid var(--border);
-    background: var(--panel);
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    align-items: start;
-  }
-
-  .team-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.2rem;
-  }
-
-  .team-role {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    margin-bottom: 0.8rem;
-  }
-
-  .team-desc {
-    font-size: 0.88rem;
-    color: var(--text);
-    border-left: 2px solid var(--amber-dim);
-    padding-left: 1rem;
-  }
-
-  .team-period {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.62rem;
-    color: var(--steel);
-    letter-spacing: 0.1em;
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    white-space: nowrap;
-    height: fit-content;
-  }
-
-  /* ─── COURSEWORK ─── */
-  .course-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .course-chip {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.68rem;
-    padding: 5px 12px;
-    border: 1px solid var(--border);
-    color: var(--steel);
-    letter-spacing: 0.05em;
-    background: var(--panel);
-    transition: all 0.2s;
-  }
-
-  .course-chip:hover {
-    border-color: var(--green-dim);
-    color: var(--green);
-    background: rgba(61,255,110,0.03);
-  }
-
   /* ─── FOOTER ─── */
   footer {
     border-top: 1px solid var(--border);
@@ -831,10 +760,6 @@
       grid-template-columns: 1fr;
     }
 
-    .team-block {
-      grid-template-columns: 1fr;
-    }
-
     .reticle {
       width: 80vw; height: 80vw;
     }
@@ -868,7 +793,6 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#team">Team</a></li>
     <li><a href="#certs">Certs</a></li>
   </ul>
   <div class="nav-status">
@@ -886,7 +810,6 @@
   <a href="#experience" onclick="closeMenu()">Experience</a>
   <a href="#projects" onclick="closeMenu()">Projects</a>
   <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#team" onclick="closeMenu()">Team</a>
   <a href="#certs" onclick="closeMenu()">Certifications</a>
 </div>
 
@@ -978,6 +901,16 @@
       Assisted in inspection, maintenance, and basic troubleshooting of diesel engines and light vehicle systems in a professional workshop environment.
     </div>
   </div>
+
+  <div class="exp-block reveal hud-corners" style="margin-top: 1.5rem;">
+    <div class="exp-period">MAY 2025 — PRESENT</div>
+    <div class="exp-company">Team Vyadh</div>
+    <div class="exp-role">Mechanical Senior Core · VIT Space Rover Team</div>
+    <div class="exp-location">📍 VIT, VELLORE</div>
+    <div class="exp-desc">
+      Involved in mechanical system development for the space rover, focusing on mechanism research, structural design, fabrication, and system integration for competition missions.
+    </div>
+  </div>
 </section>
 
 <div class="section-divider"></div>
@@ -997,9 +930,7 @@
         <div class="project-title">Enhancement of Performance of a Scramjet Engine using CFD</div>
         <div class="project-supervisor">UNDER DR. SENTHILKUMAR P · School of Mechanical Engineering, VIT Vellore</div>
         <div class="project-desc">
-          Modifying scramjet engine geometry to study shock-boundary layer interactions and assess their impact on engine efficiency and mass flow rate. Parametric isolator height studies conducted in ANSYS Fluent with 0.40 in geometry emerging as optimal — achieving 67.30% pressure recovery and mass conservation error of 0.0046%.
-        </div>
-      </div>
+          Modifying scramjet engine geometry to study shock-boundary layer interactions and assess their impact on engine efficiency and mass flow rate.
       <div class="project-badge">ACTIVE</div>
     </div>
 
@@ -1009,7 +940,7 @@
         <div class="project-title">CFD Simulation — Heat Transfer from a Gun Barrel</div>
         <div class="project-supervisor">UNDER DR. RAJESH KANNA · CO₂ Research & Green Technologies Centre, VIT Vellore</div>
         <div class="project-desc">
-          Studying heat and mass transfer mechanisms in a 5.56mm NATO-caliber gun barrel to identify and develop designs for optimal thermal efficiency. Coupled steady-state thermal and static structural analyses across multiple fin configurations (T, L, Y fins), validated against Chaturvedi's published benchmarks. AISI 4340 steel barrel modelled in SolidWorks and meshed in ANSYS Workbench.
+          Studying heat and mass transfer mechanisms in a 5.56mm NATO-caliber gun barrel to identify and develop designs for optimal thermal efficiency.
         </div>
       </div>
       <div class="project-badge">ACTIVE</div>
@@ -1026,99 +957,19 @@
     <div class="section-label">04 // TECHNICAL ARSENAL</div>
     <div class="section-line"></div>
   </div>
-  <h2 class="section-title reveal">Technical Skills</h2>
-  <div class="skills-grid">
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">CAD & Design</div>
-      <div class="skill-list">
-        <span class="skill-pill">SolidWorks</span>
-        <span class="skill-pill">Fusion 360</span>
-        <span class="skill-pill">Engineering Drawing</span>
-        <span class="skill-pill">GD&T</span>
-        <span class="skill-pill">Assembly Modelling</span>
-        <span class="skill-pill">Drafting</span>
-      </div>
+  <h2 class="section-title reveal">Skills</h2>
+  <div class="skill-group reveal" style="max-width: 700px;">
+    <div class="skill-list">
+      <span class="skill-pill">Computational Fluid Dynamics</span>
+      <span class="skill-pill">Finite Element Analysis</span>
+      <span class="skill-pill">Computer-Aided Design</span>
+      <span class="skill-pill">Computer-Aided Manufacturing (Basic)</span>
+      <span class="skill-pill">SolidWorks</span>
+      <span class="skill-pill">Fusion 360</span>
+      <span class="skill-pill">Engineering Drawing</span>
+      <span class="skill-pill">Engineering Data Analysis</span>
+      <span class="skill-pill">GD&T</span>
     </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Simulation & Analysis</div>
-      <div class="skill-list">
-        <span class="skill-pill">ANSYS Fluent</span>
-        <span class="skill-pill">ANSYS Mechanical</span>
-        <span class="skill-pill">ICEM CFD</span>
-        <span class="skill-pill">CFD Fundamentals</span>
-        <span class="skill-pill">FEA</span>
-        <span class="skill-pill">Steady-State Thermal</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Programming & Data</div>
-      <div class="skill-list">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">NumPy</span>
-        <span class="skill-pill">Pandas</span>
-        <span class="skill-pill">Matplotlib</span>
-        <span class="skill-pill">MATLAB</span>
-        <span class="skill-pill">Engineering Data Analysis</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Domain Knowledge</div>
-      <div class="skill-list">
-        <span class="skill-pill">Thermodynamics</span>
-        <span class="skill-pill">Fluid Mechanics</span>
-        <span class="skill-pill">Strength of Materials</span>
-        <span class="skill-pill">Engineering Mechanics</span>
-        <span class="skill-pill">Rover Mobility</span>
-        <span class="skill-pill">Terramechanics</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="section-header reveal">
-    <div class="section-label">05 // UNIT / TEAM</div>
-    <div class="section-line"></div>
-  </div>
-  <h2 class="section-title reveal">Team Experience</h2>
-  <div class="team-block reveal hud-corners">
-    <div>
-      <div class="team-name">Team Vyadh 🛸</div>
-      <div class="team-role">MECHANICAL SENIOR CORE · VIT SPACE ROVER TEAM</div>
-      <div class="team-desc">
-        Involved in mechanical system development for a competition space rover — focusing on mechanism research, structural design, fabrication, and system integration for IRC 2026 mission objectives. Performed FEA on custom TPU 64D wheel designs in ANSYS Student, achieving a safety factor of ~273 with 15.5% lower deformation versus legacy designs.
-      </div>
-    </div>
-    <div class="team-period">MAY 2025 — PRESENT</div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- COURSEWORK -->
-<section id="coursework">
-  <div class="section-header reveal">
-    <div class="section-label">06 // COURSEWORK</div>
-    <div class="section-line"></div>
-  </div>
-  <h2 class="section-title reveal">Core Coursework</h2>
-  <div class="course-grid reveal">
-    <span class="course-chip">Engineering Mechanics</span>
-    <span class="course-chip">Strength of Materials</span>
-    <span class="course-chip">Thermodynamics</span>
-    <span class="course-chip">Fluid Mechanics</span>
-    <span class="course-chip">Engineering Drawing</span>
-    <span class="course-chip">CAD/CAM Fundamentals</span>
-    <span class="course-chip">Rover Mobility Basics</span>
-    <span class="course-chip">Python for Engineering Analysis</span>
   </div>
 </section>
 
@@ -1127,7 +978,7 @@
 <!-- CERTIFICATIONS -->
 <section id="certs">
   <div class="section-header reveal">
-    <div class="section-label">07 // CREDENTIALS</div>
+    <div class="section-label">05 // CREDENTIALS</div>
     <div class="section-line"></div>
   </div>
   <h2 class="section-title reveal">Certifications</h2>
