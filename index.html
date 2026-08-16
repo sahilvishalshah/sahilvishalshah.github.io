@@ -587,6 +587,125 @@
     height: fit-content;
   }
 
+  .project-badge.complete {
+    border: 1px solid var(--steel);
+    color: var(--white);
+  }
+
+  .project-card[data-status="hidden"] { display: none; }
+
+  /* ─── PROJECT FILTER ─── */
+  .project-filter {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--steel);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .filter-btn:hover { border-color: var(--amber-dim); color: var(--amber); }
+
+  .filter-btn.active {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(232,160,32,0.1);
+  }
+
+  /* ─── PROJECT META (guide line + links) ─── */
+  .project-guide {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--steel);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.9rem;
+  }
+
+  .project-link {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--amber);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--amber-dim);
+    padding: 3px 9px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .project-link:hover { background: rgba(232,160,32,0.1); }
+
+  /* ─── PROJECT IMAGES ─── */
+  .project-images {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+  }
+
+  .project-img-frame {
+    position: relative;
+    flex: 1 1 220px;
+    max-width: 320px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 4px;
+  }
+
+  .project-img-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: saturate(0.9) contrast(1.05);
+  }
+
+  .project-img-caption {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--amber-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 2px 1px;
+  }
+
+  .project-img-placeholder {
+    flex: 1 1 220px;
+    max-width: 320px;
+    min-height: 110px;
+    border: 1px dashed var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .project-img-placeholder span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--amber-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
   /* ─── SKILLS ─── */
   .skills-grid {
     display: grid;
@@ -921,35 +1040,169 @@
     <div class="section-label">03 // MISSIONS / PROJECTS</div>
     <div class="section-line"></div>
   </div>
-  <h2 class="section-title reveal">Research Projects</h2>
+  <h2 class="section-title reveal">Projects</h2>
+
+  <div class="project-filter reveal">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All // 8</button>
+    <button class="filter-btn" onclick="filterProjects('active', this)">Ongoing // 5</button>
+    <button class="filter-btn" onclick="filterProjects('complete', this)">Completed // 3</button>
+  </div>
+
   <div class="project-cards">
 
-    <div class="project-card reveal hud-corners">
+    <!-- ONGOING: Scramjet Isolator CFD -->
+    <div class="project-card reveal hud-corners" data-cat="active">
       <div>
         <div class="project-period">JAN 2025 — PRESENT</div>
         <div class="project-title">Enhancement of Performance of a Scramjet Engine using CFD</div>
-        <div class="project-supervisor">UNDER DR. SENTHILKUMAR P · School of Mechanical Engineering, VIT Vellore</div>
+        <div class="project-guide">UNDER DR. SENTHILKUMAR P · School of Mechanical Engineering, VIT Vellore</div>
         <div class="project-desc">
-          Modifying scramjet engine geometry to study shock-boundary layer interactions and assess their impact on engine efficiency and mass flow rate.
+          Optimizing scramjet isolator geometry in ANSYS Fluent across seven candidate isolator heights to study shock-boundary layer interactions and their effect on mass flow rate and pressure recovery. The 0.40" configuration emerged as the overall optimum, balancing mass-conservation error against pressure recovery — the resulting dataset now feeds a Bayesian Optimization course project (see below).
+        </div>
+        <div class="project-images">
+          <div class="project-img-placeholder"><span>Visual pending</span></div>
         </div>
       </div>
       <div class="project-badge">ACTIVE</div>
     </div>
 
-    <div class="project-card reveal hud-corners">
+    <!-- ONGOING: Gun Barrel Fin FEA -->
+    <div class="project-card reveal hud-corners" data-cat="active">
       <div>
         <div class="project-period">SEP 2025 — PRESENT</div>
-        <div class="project-title">CFD Simulation — Heat Transfer from a Gun Barrel</div>
-        <div class="project-supervisor">UNDER DR. RAJESH KANNA · CO₂ Research & Green Technologies Centre, VIT Vellore</div>
+        <div class="project-title">CFD/FEA Simulation — Heat Transfer from a Gun Barrel</div>
+        <div class="project-guide">UNDER DR. RAJESH KANNA · School of Mechanical Engineering, VIT Vellore</div>
         <div class="project-desc">
-          Studying heat and mass transfer mechanisms in a 5.56mm NATO-caliber gun barrel to identify and develop designs for optimal thermal efficiency. 
+          Comparative FEA study of V-, L-, Y-, and T-fin configurations on a 5.56mm NATO-caliber barrel to identify designs for optimal thermal efficiency. Currently developing an ANSYS Fluent UDF for a periodic mass-flow inlet boundary condition to capture transient heat flux, after identifying stress singularities at the fin-root junctions. Co-authored with Pratham Vashistha, targeting a Q1/Q2 journal publication.
+        </div>
+        <div class="project-images">
+          <div class="project-img-placeholder"><span>Visual pending</span></div>
         </div>
       </div>
       <div class="project-badge">ACTIVE</div>
+    </div>
+
+    <!-- ONGOING: 5-DOF Robotic Arm -->
+    <div class="project-card reveal hud-corners" data-cat="active">
+      <div>
+        <div class="project-period">2026 — PRESENT</div>
+        <div class="project-title">5-DOF Robotic Arm — Design, Modeling & Control</div>
+        <div class="project-guide">UNDER DR. MANDALA CHINNA OBAIAH · School of Electrical Engineering, VIT Vellore</div>
+        <div class="project-desc">
+          Design, modeling, and control of a 5-DOF robotic arm with gripper end-effector. Kinematics formulated via Denavit-Hartenberg parameters; dynamics via the Lagrangian formulation, linearized about an operating point into a state-space model for pole-placement control. Independent joint-level PID controllers, tuned in MATLAB/Simulink, are benchmarked against the state-space design — with the physical build (servo motors + microcontroller) validating simulated step responses against real hardware and surfacing the effects of unmodeled friction and backlash.
+        </div>
+        <div class="project-images">
+          <div class="project-img-placeholder"><span>Image / video coming soon</span></div>
+        </div>
+      </div>
+      <div class="project-badge">ACTIVE</div>
+    </div>
+
+    <!-- ONGOING: AM Heat Exchangers Review -->
+    <div class="project-card reveal hud-corners" data-cat="active">
+      <div>
+        <div class="project-period">2026 — PRESENT</div>
+        <div class="project-title">Advances in Additively Manufactured Heat Exchangers</div>
+        <div class="project-guide">UNDER DR. GOVINDHA RASU N, HOD · School of Mechanical Engineering, VIT Vellore</div>
+        <div class="project-desc">
+          A systematic review of AM (SLM, binder jetting, SLA) heat exchanger design — TPMS lattices, gyroids, and conformal flow channels unreachable by conventional shell-and-tube or plate-fin manufacturing. Consolidates fragmented literature on process-performance relationships (surface roughness, porosity, dimensional accuracy) and material-specific gaps between high-temperature ceramics/metals and polymer HEs, to guide future research and industrial adoption of AM-enabled compact thermal systems.
+        </div>
+        <div class="project-images">
+          <div class="project-img-placeholder"><span>Visual pending</span></div>
+        </div>
+      </div>
+      <div class="project-badge">ACTIVE</div>
+    </div>
+
+    <!-- ONGOING: Bayesian Optimization -->
+    <div class="project-card reveal hud-corners" data-cat="active">
+      <div>
+        <div class="project-period">2026 — PRESENT</div>
+        <div class="project-title">Bayesian Optimization of Scramjet Isolator Geometry using CFD Data</div>
+        <div class="project-guide">UNDER DR. PRASHIK SUNIL GAIKWAD · School of Mechanical Engineering, VIT Vellore</div>
+        <div class="project-desc">
+          Applies Bayesian optimization with a Gaussian Process surrogate model to guide CFD design exploration of scramjet isolator height against pressure recovery and mass flow rate. Retrospective validation on an existing 16-trial CFD dataset shows the method would have located the best-performing design in far fewer simulations than a full manual sweep; the trained GP model now recommends the single most informative next isolator height to simulate in ANSYS — a live decision-support tool for the rest of the semester.
+        </div>
+        <div class="project-images">
+          <div class="project-img-placeholder"><span>Visual pending</span></div>
+        </div>
+      </div>
+      <div class="project-badge">ACTIVE</div>
+    </div>
+
+    <!-- COMPLETED: Obstacle Avoiding Robot -->
+    <div class="project-card reveal hud-corners" data-cat="complete">
+      <div>
+        <div class="project-period">INDEPENDENT PROJECT</div>
+        <div class="project-title">Obstacle Avoiding Robot</div>
+        <div class="project-desc">
+          Autonomous obstacle-avoiding robot on Arduino UNO, programmed to detect and steer around obstacles in real time. An HC-SR04 ultrasonic sensor mounted on an SG90 servo scans left/right to measure distances, while an L298N driver controls two DC motors for steering — powered by 4×AA 1.5V batteries. Circuit designed and simulated in Tinkercad before physical assembly.
+        </div>
+        <div class="project-images">
+          <div class="project-img-frame">
+            <img src="images/obstacle-robot-circuit.png" alt="Tinkercad circuit schematic for the obstacle-avoiding robot">
+            <div class="project-img-caption">Fig. 01 — Circuit Schematic (Tinkercad)</div>
+          </div>
+          <div class="project-img-frame">
+            <img src="images/obstacle-robot-photo.png" alt="Assembled obstacle-avoiding robot hardware">
+            <div class="project-img-caption">Fig. 02 — Assembled Hardware</div>
+          </div>
+        </div>
+      </div>
+      <div class="project-badge complete">COMPLETE</div>
+    </div>
+
+    <!-- COMPLETED: Drag Reduction System -->
+    <div class="project-card reveal hud-corners" data-cat="complete">
+      <div>
+        <div class="project-period">INDEPENDENT PROJECT</div>
+        <div class="project-title">Airflow Through a Drag Reduction System (DRS)</div>
+        <div class="project-guide">UNDER DR. RAJESH KANNA · School of Mechanical Engineering, VIT Vellore</div>
+        <div class="project-desc">
+          F1-inspired Drag Reduction System combining CAD modeling, CFD simulation (SimScale), and a physical wind-tunnel prototype. Simulation at 250 km/h showed a 44% drag reduction and 54% downforce drop when the DRS was activated, consistent with real-world F1 straight-line speed gains; physical flow visualization confirmed reduced wake turbulence and improved airflow attachment with DRS on.
+        </div>
+        <div class="project-images">
+          <div class="project-img-frame">
+            <img src="images/drs-wind-tunnel.png" alt="Physical wind tunnel prototype for the drag reduction system">
+            <div class="project-img-caption">Fig. 01 — Wind Tunnel Prototype</div>
+          </div>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://www.youtube.com/watch?v=X-3TccOcbLE" target="_blank">▶ Watch Demo</a>
+        </div>
+      </div>
+      <div class="project-badge complete">COMPLETE</div>
+    </div>
+
+    <!-- COMPLETED: Thermal Review Paper -->
+    <div class="project-card reveal hud-corners" data-cat="complete">
+      <div>
+        <div class="project-period">INDEPENDENT PROJECT</div>
+        <div class="project-title">Comparative Analysis of Fighter Jet Engine Performance Across Countries</div>
+        <div class="project-guide">UNDER DR. GOVINDHA RASU N, HOD · School of Mechanical Engineering, VIT Vellore</div>
+        <div class="project-desc">
+          Review paper comparing performance parameters of fighter jet engines developed by different countries, with mathematical modeling of engine efficiency as a function of inlet losses and flight Mach number. Analyzes the influence of inlet design, operational regime, and design philosophy on propulsion efficiency, and identifies gaps in open-literature comparison of fighter jet engines.
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://drive.google.com/file/d/1XifzR8JnTQxOH3r7nvrmRLra52rKJCm0/view?usp=sharing" target="_blank">📄 Read Paper</a>
+        </div>
+      </div>
+      <div class="project-badge complete">COMPLETE</div>
     </div>
 
   </div>
 </section>
+
+<script>
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = show ? '' : 'none';
+    });
+  }
+</script>
 
 <div class="section-divider"></div>
 
