@@ -20,11 +20,11 @@
     --white:     #EEF2EE;
     --red:       #FF4040;
   }
-
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -33,7 +33,7 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
+ 
   /* ─── SCANLINE OVERLAY ─── */
   body::after {
     content: '';
@@ -49,7 +49,7 @@
     pointer-events: none;
     z-index: 9999;
   }
-
+ 
   /* ─── NAV ─── */
   nav {
     position: fixed;
@@ -64,7 +64,7 @@
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(8px);
   }
-
+ 
   .nav-id {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.78rem;
@@ -72,7 +72,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-
+ 
   .logo-circle {
     width: 38px;
     height: 38px;
@@ -89,19 +89,19 @@
     letter-spacing: 0.05em;
     transition: border-color 0.25s, background 0.25s, transform 0.25s;
   }
-
+ 
   .logo-circle:hover {
     border-color: var(--amber);
     background: rgba(232,160,32,0.14);
     transform: rotate(8deg);
   }
-
+ 
   .nav-links {
     display: flex;
     gap: 1.6rem;
     list-style: none;
   }
-
+ 
   .nav-links a {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.7rem;
@@ -111,9 +111,9 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
+ 
   .nav-links a:hover { color: var(--amber); }
-
+ 
   .nav-status {
     display: flex;
     align-items: center;
@@ -123,19 +123,19 @@
     color: var(--green);
     letter-spacing: 0.08em;
   }
-
+ 
   .status-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--green);
     animation: pulse 2s infinite;
   }
-
+ 
   @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
   }
-
+ 
   /* ─── HERO ─── */
   #hero {
     min-height: 100vh;
@@ -147,7 +147,7 @@
     padding: 80px 2rem 4rem;
     overflow: hidden;
   }
-
+ 
   /* Grid background */
   #hero::before {
     content: '';
@@ -159,7 +159,7 @@
     background-size: 60px 60px;
     opacity: 0.4;
   }
-
+ 
   /* RETICLE — the signature element */
   .reticle {
     position: absolute;
@@ -169,7 +169,7 @@
     height: min(520px, 90vw);
     pointer-events: none;
   }
-
+ 
   .reticle-ring {
     position: absolute;
     inset: 0;
@@ -177,26 +177,26 @@
     border-radius: 50%;
     animation: reticle-spin 20s linear infinite;
   }
-
+ 
   .reticle-ring::before, .reticle-ring::after {
     content: '';
     position: absolute;
     background: var(--amber-dim);
   }
-
+ 
   /* tick marks */
   .reticle-ring::before {
     width: 1px; height: 16px;
     top: -1px; left: 50%;
     transform: translateX(-50%);
   }
-
+ 
   .reticle-ring::after {
     width: 1px; height: 16px;
     bottom: -1px; left: 50%;
     transform: translateX(-50%);
   }
-
+ 
   .reticle-inner {
     position: absolute;
     inset: 30px;
@@ -204,7 +204,7 @@
     border-radius: 50%;
     animation: reticle-spin 12s linear infinite reverse;
   }
-
+ 
   /* crosshair lines */
   .reticle-h, .reticle-v {
     position: absolute;
@@ -213,14 +213,14 @@
     height: 1px;
     transform: translateY(-50%);
   }
-
+ 
   .reticle-v {
     top: 0; bottom: 0; left: 50%;
     width: 1px;
     height: auto;
     transform: translateX(-50%);
   }
-
+ 
   /* corner brackets */
   .reticle-corner {
     position: absolute;
@@ -228,17 +228,17 @@
     border-color: var(--amber);
     border-style: solid;
   }
-
+ 
   .reticle-corner.tl { top: 60px; left: 60px; border-width: 2px 0 0 2px; }
   .reticle-corner.tr { top: 60px; right: 60px; border-width: 2px 2px 0 0; }
   .reticle-corner.bl { bottom: 60px; left: 60px; border-width: 0 0 2px 2px; }
   .reticle-corner.br { bottom: 60px; right: 60px; border-width: 0 2px 2px 0; }
-
+ 
   @keyframes reticle-spin {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
   }
-
+ 
   /* Hero content */
   .hero-content {
     position: relative;
@@ -246,7 +246,7 @@
     text-align: center;
     max-width: 700px;
   }
-
+ 
   .hero-eyebrow {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.72rem;
@@ -256,7 +256,7 @@
     margin-bottom: 1.2rem;
     opacity: 0.9;
   }
-
+ 
   .hero-name {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(3rem, 10vw, 7rem);
@@ -267,9 +267,9 @@
     letter-spacing: -0.01em;
     margin-bottom: 1rem;
   }
-
+ 
   .hero-name span { color: var(--amber); }
-
+ 
   .hero-title {
     font-family: 'Barlow Condensed', monospace;
     font-size: clamp(1rem, 3vw, 1.4rem);
@@ -279,7 +279,7 @@
     text-transform: uppercase;
     margin-bottom: 2rem;
   }
-
+ 
   .hero-tags {
     display: flex;
     flex-wrap: wrap;
@@ -287,7 +287,7 @@
     justify-content: center;
     margin-bottom: 2.5rem;
   }
-
+ 
   .tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -297,7 +297,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-
+ 
   .tag.highlight {
     border-color: var(--amber);
     color: var(--amber);
@@ -307,14 +307,14 @@
     background: rgba(232,160,32,0.1);
     box-shadow: 0 0 12px rgba(232,160,32,0.25);
   }
-
+ 
   .hero-contacts {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2rem;
     justify-content: center;
   }
-
+ 
   .contact-link {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.72rem;
@@ -326,10 +326,10 @@
     gap: 6px;
     transition: color 0.2s;
   }
-
+ 
   .contact-link:hover { color: var(--amber); }
   .contact-link svg { width: 14px; height: 14px; fill: currentColor; }
-
+ 
   /* scroll cue */
   .scroll-cue {
     position: absolute;
@@ -346,26 +346,26 @@
     letter-spacing: 0.1em;
     animation: bounce 2s infinite;
   }
-
+ 
   @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(6px); }
   }
-
+ 
   /* ─── SECTIONS ─── */
   section {
     max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 2rem;
   }
-
+ 
   .section-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 2.5rem;
   }
-
+ 
   .section-label {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -374,13 +374,13 @@
     text-transform: uppercase;
     white-space: nowrap;
   }
-
+ 
   .section-line {
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, var(--border), transparent);
   }
-
+ 
   .section-title {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -390,14 +390,14 @@
     letter-spacing: 0.05em;
     margin-bottom: 0.3rem;
   }
-
+ 
   /* ─── EDUCATION ─── */
   .edu-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
   }
-
+ 
   .edu-card {
     border: 1px solid var(--border);
     padding: 1.5rem;
@@ -406,7 +406,7 @@
     overflow: hidden;
     transition: border-color 0.3s;
   }
-
+ 
   .edu-card::before {
     content: '';
     position: absolute;
@@ -415,9 +415,9 @@
     height: 100%;
     background: var(--amber);
   }
-
+ 
   .edu-card:hover { border-color: var(--amber-dim); }
-
+ 
   .edu-period {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -425,7 +425,7 @@
     letter-spacing: 0.1em;
     margin-bottom: 0.6rem;
   }
-
+ 
   .edu-institution {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.2rem;
@@ -435,26 +435,26 @@
     letter-spacing: 0.04em;
     margin-bottom: 0.3rem;
   }
-
+ 
   .edu-degree {
     font-size: 0.85rem;
     color: var(--steel);
     margin-bottom: 0.6rem;
   }
-
+ 
   .edu-score {
     font-family: 'Share Tech Mono', monospace;
     font-size: 1.4rem;
     color: var(--green);
   }
-
+ 
   .edu-score small {
     font-size: 0.65rem;
     color: var(--steel);
     vertical-align: middle;
     margin-left: 4px;
   }
-
+ 
   /* ─── EXPERIENCE / INTERNSHIP ─── */
   .exp-block {
     border: 1px solid var(--border);
@@ -463,7 +463,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .exp-block::after {
     content: 'INTERNSHIP';
     position: absolute;
@@ -475,7 +475,7 @@
     border: 1px solid var(--amber-dim);
     padding: 2px 8px;
   }
-
+ 
   .exp-period {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -483,7 +483,7 @@
     letter-spacing: 0.1em;
     margin-bottom: 0.5rem;
   }
-
+ 
   .exp-company {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.5rem;
@@ -492,13 +492,13 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
-
+ 
   .exp-role {
     font-size: 0.85rem;
     color: var(--steel);
     margin-bottom: 1rem;
   }
-
+ 
   .exp-location {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -506,20 +506,20 @@
     letter-spacing: 0.08em;
     margin-bottom: 1rem;
   }
-
+ 
   .exp-desc {
     font-size: 0.92rem;
     color: var(--text);
     border-left: 2px solid var(--green-dim);
     padding-left: 1rem;
   }
-
+ 
   /* ─── PROJECTS ─── */
   .project-cards {
     display: grid;
     gap: 1.5rem;
   }
-
+ 
   .project-card {
     border: 1px solid var(--border);
     background: var(--panel);
@@ -532,7 +532,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .project-card::before {
     content: '';
     position: absolute;
@@ -541,10 +541,10 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
-
+ 
   .project-card:hover { border-color: var(--amber-dim); }
   .project-card:hover::before { opacity: 1; }
-
+ 
   .project-period {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.62rem;
@@ -552,7 +552,7 @@
     letter-spacing: 0.1em;
     margin-bottom: 0.5rem;
   }
-
+ 
   .project-title {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.3rem;
@@ -562,7 +562,7 @@
     letter-spacing: 0.03em;
     margin-bottom: 0.3rem;
   }
-
+ 
   .project-supervisor {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.62rem;
@@ -570,12 +570,12 @@
     letter-spacing: 0.05em;
     margin-bottom: 0.8rem;
   }
-
+ 
   .project-desc {
     font-size: 0.88rem;
     color: var(--text);
   }
-
+ 
   .project-badge {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.6rem;
@@ -586,14 +586,14 @@
     white-space: nowrap;
     height: fit-content;
   }
-
+ 
   .project-badge.complete {
     border: 1px solid var(--steel);
     color: var(--white);
   }
-
+ 
   .project-card[data-status="hidden"] { display: none; }
-
+ 
   /* ─── PROJECT FILTER ─── */
   .project-filter {
     display: flex;
@@ -601,7 +601,7 @@
     margin-bottom: 2rem;
     flex-wrap: wrap;
   }
-
+ 
   .filter-btn {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -614,15 +614,15 @@
     cursor: pointer;
     transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-
+ 
   .filter-btn:hover { border-color: var(--amber-dim); color: var(--amber); }
-
+ 
   .filter-btn.active {
     border-color: var(--amber);
     color: var(--amber);
     background: rgba(232,160,32,0.1);
   }
-
+ 
   /* ─── PROJECT META (guide line + links) ─── */
   .project-guide {
     font-family: 'Share Tech Mono', monospace;
@@ -631,14 +631,14 @@
     letter-spacing: 0.05em;
     margin-bottom: 0.8rem;
   }
-
+ 
   .project-links {
     display: flex;
     gap: 0.6rem;
     flex-wrap: wrap;
     margin-top: 0.9rem;
   }
-
+ 
   .project-link {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.62rem;
@@ -650,9 +650,9 @@
     white-space: nowrap;
     transition: background 0.2s;
   }
-
+ 
   .project-link:hover { background: rgba(232,160,32,0.1); }
-
+ 
   /* ─── PROJECT IMAGES ─── */
   .project-images {
     display: flex;
@@ -660,7 +660,7 @@
     flex-wrap: wrap;
     margin-top: 1.2rem;
   }
-
+ 
   .project-img-frame {
     position: relative;
     flex: 1 1 220px;
@@ -669,14 +669,14 @@
     background: var(--bg);
     padding: 4px;
   }
-
+ 
   .project-img-frame img {
     display: block;
     width: 100%;
     height: auto;
     filter: saturate(0.9) contrast(1.05);
   }
-
+ 
   .project-img-caption {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.58rem;
@@ -685,7 +685,7 @@
     text-transform: uppercase;
     padding: 5px 2px 1px;
   }
-
+ 
   .project-img-placeholder {
     flex: 1 1 220px;
     max-width: 320px;
@@ -697,7 +697,7 @@
     text-align: center;
     padding: 1rem;
   }
-
+ 
   .project-img-placeholder span {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.6rem;
@@ -705,20 +705,20 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
+ 
   /* ─── SKILLS ─── */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
   }
-
+ 
   .skill-group {
     border: 1px solid var(--border);
     background: var(--panel);
     padding: 1.5rem;
   }
-
+ 
   .skill-group-title {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -729,13 +729,13 @@
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .skill-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
   }
-
+ 
   .skill-pill {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.65rem;
@@ -746,19 +746,19 @@
     background: rgba(255,255,255,0.02);
     transition: border-color 0.2s, color 0.2s;
   }
-
+ 
   .skill-pill:hover {
     border-color: var(--amber-dim);
     color: var(--amber);
   }
-
+ 
   /* ─── CERTIFICATIONS ─── */
   .cert-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1rem;
   }
-
+ 
   .cert-item {
     border: 1px solid var(--border);
     background: var(--panel);
@@ -768,21 +768,21 @@
     gap: 0.8rem;
     transition: border-color 0.25s;
   }
-
+ 
   .cert-item:hover { border-color: var(--amber-dim); }
-
+ 
   .cert-icon {
     width: 28px; height: 28px;
     flex-shrink: 0;
     color: var(--amber);
   }
-
+ 
   .cert-name {
     font-size: 0.82rem;
     color: var(--text);
     line-height: 1.3;
   }
-
+ 
   .cert-issuer {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.6rem;
@@ -790,7 +790,7 @@
     letter-spacing: 0.05em;
     margin-top: 2px;
   }
-
+ 
   /* ─── FOOTER ─── */
   footer {
     border-top: 1px solid var(--border);
@@ -802,19 +802,19 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-
+ 
   /* ─── DIVIDER ─── */
   .section-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
     margin: 0 2rem;
   }
-
+ 
   /* ─── HUD CORNERS (decorative on cards) ─── */
   .hud-corners {
     position: relative;
   }
-
+ 
   .hud-corners::before,
   .hud-corners::after {
     content: '';
@@ -823,10 +823,10 @@
     border-color: var(--amber);
     border-style: solid;
   }
-
+ 
   .hud-corners::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
   .hud-corners::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-
+ 
   /* ─── MOBILE NAV ─── */
   .hamburger {
     display: none;
@@ -835,14 +835,14 @@
     cursor: pointer;
     padding: 4px;
   }
-
+ 
   .hamburger span {
     display: block;
     width: 22px; height: 2px;
     background: var(--amber);
     transition: 0.3s;
   }
-
+ 
   .mobile-menu {
     display: none;
     position: fixed;
@@ -854,9 +854,9 @@
     flex-direction: column;
     gap: 1rem;
   }
-
+ 
   .mobile-menu.open { display: flex; }
-
+ 
   .mobile-menu a {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.8rem;
@@ -867,35 +867,35 @@
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .mobile-menu a:hover { color: var(--amber); }
-
+ 
   @media (max-width: 700px) {
     .nav-links { display: none; }
     .nav-status { display: none; }
     .hamburger { display: flex; }
-
+ 
     .project-card {
       grid-template-columns: 1fr;
     }
-
+ 
     .reticle {
       width: 80vw; height: 80vw;
     }
-
+ 
     .reticle-corner.tl { top: 30px; left: 30px; }
     .reticle-corner.tr { top: 30px; right: 30px; }
     .reticle-corner.bl { bottom: 30px; left: 30px; }
     .reticle-corner.br { bottom: 30px; right: 30px; }
   }
-
+ 
   /* ─── FADE IN ANIMATIONS ─── */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-
+ 
   .reveal.visible {
     opacity: 1;
     transform: none;
@@ -903,7 +903,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="logo-circle" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">SVS</div>
@@ -922,7 +922,7 @@
     <span></span><span></span><span></span>
   </div>
 </nav>
-
+ 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#education" onclick="closeMenu()">Education</a>
@@ -931,7 +931,7 @@
   <a href="#skills" onclick="closeMenu()">Skills</a>
   <a href="#certs" onclick="closeMenu()">Certifications</a>
 </div>
-
+ 
 <!-- HERO -->
 <section id="hero">
   <!-- Targeting reticle -->
@@ -946,7 +946,7 @@
     <div class="reticle-corner bl"></div>
     <div class="reticle-corner br"></div>
   </div>
-
+ 
   <div class="hero-content">
     <div class="hero-eyebrow">[ PERSONNEL FILE — UNCLASSIFIED ]</div>
     <h1 class="hero-name">SAHIL<br><span>VISHAL</span><br>SHAH</h1>
@@ -971,14 +971,14 @@
       </a>
     </div>
   </div>
-
+ 
   <div class="scroll-cue">
     ▼ SCROLL
   </div>
 </section>
-
+ 
 <div class="section-divider"></div>
-
+ 
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-header reveal">
@@ -1001,9 +1001,9 @@
     </div>
   </div>
 </section>
-
+ 
 <div class="section-divider"></div>
-
+ 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header reveal">
@@ -1020,7 +1020,7 @@
       Assisted in inspection, maintenance, and basic troubleshooting of diesel engines and light vehicle systems in a professional workshop environment.
     </div>
   </div>
-
+ 
   <div class="exp-block reveal hud-corners" style="margin-top: 1.5rem;">
     <div class="exp-period">MAY 2025 — PRESENT</div>
     <div class="exp-company">Team Vyadh</div>
@@ -1031,9 +1031,9 @@
     </div>
   </div>
 </section>
-
+ 
 <div class="section-divider"></div>
-
+ 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
@@ -1041,15 +1041,15 @@
     <div class="section-line"></div>
   </div>
   <h2 class="section-title reveal">Projects</h2>
-
+ 
   <div class="project-filter reveal">
     <button class="filter-btn active" onclick="filterProjects('all', this)">All // 8</button>
     <button class="filter-btn" onclick="filterProjects('active', this)">Ongoing // 5</button>
     <button class="filter-btn" onclick="filterProjects('complete', this)">Completed // 3</button>
   </div>
-
+ 
   <div class="project-cards">
-
+ 
     <!-- ONGOING: Scramjet Isolator CFD -->
     <div class="project-card reveal hud-corners" data-cat="active">
       <div>
@@ -1065,7 +1065,7 @@
       </div>
       <div class="project-badge">ACTIVE</div>
     </div>
-
+ 
     <!-- ONGOING: Gun Barrel Fin FEA -->
     <div class="project-card reveal hud-corners" data-cat="active">
       <div>
@@ -1081,7 +1081,7 @@
       </div>
       <div class="project-badge">ACTIVE</div>
     </div>
-
+ 
     <!-- ONGOING: 5-DOF Robotic Arm -->
     <div class="project-card reveal hud-corners" data-cat="active">
       <div>
@@ -1097,7 +1097,7 @@
       </div>
       <div class="project-badge">ACTIVE</div>
     </div>
-
+ 
     <!-- ONGOING: AM Heat Exchangers Review -->
     <div class="project-card reveal hud-corners" data-cat="active">
       <div>
@@ -1113,7 +1113,7 @@
       </div>
       <div class="project-badge">ACTIVE</div>
     </div>
-
+ 
     <!-- ONGOING: Bayesian Optimization -->
     <div class="project-card reveal hud-corners" data-cat="active">
       <div>
@@ -1129,7 +1129,7 @@
       </div>
       <div class="project-badge">ACTIVE</div>
     </div>
-
+ 
     <!-- COMPLETED: Obstacle Avoiding Robot -->
     <div class="project-card reveal hud-corners" data-cat="complete">
       <div>
@@ -1151,7 +1151,7 @@
       </div>
       <div class="project-badge complete">COMPLETE</div>
     </div>
-
+ 
     <!-- COMPLETED: Drag Reduction System -->
     <div class="project-card reveal hud-corners" data-cat="complete">
       <div>
@@ -1163,7 +1163,7 @@
         </div>
         <div class="project-images">
           <div class="project-img-frame">
-            <img src="https://github.com/sahilvishalshah/sahilvishalshah.github.io/blob/158aa288dc768a1a25252752c86bfd34a53fc4c4/drs-wind-tunnel.png" alt="Physical wind tunnel prototype for the drag reduction system">
+            <img src="images/drs-wind-tunnel.png" alt="Physical wind tunnel prototype for the drag reduction system">
             <div class="project-img-caption">Fig. 01 — Wind Tunnel Prototype</div>
           </div>
         </div>
@@ -1173,7 +1173,7 @@
       </div>
       <div class="project-badge complete">COMPLETE</div>
     </div>
-
+ 
     <!-- COMPLETED: Thermal Review Paper -->
     <div class="project-card reveal hud-corners" data-cat="complete">
       <div>
@@ -1189,10 +1189,10 @@
       </div>
       <div class="project-badge complete">COMPLETE</div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <script>
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1203,9 +1203,9 @@
     });
   }
 </script>
-
+ 
 <div class="section-divider"></div>
-
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-header reveal">
@@ -1227,9 +1227,9 @@
     </div>
   </div>
 </section>
-
+ 
 <div class="section-divider"></div>
-
+ 
 <!-- CERTIFICATIONS -->
 <section id="certs">
   <div class="section-header reveal">
@@ -1238,7 +1238,7 @@
   </div>
   <h2 class="section-title reveal">Certifications</h2>
   <div class="cert-list">
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1248,7 +1248,7 @@
         <div class="cert-issuer">AUTODESK</div>
       </div>
     </div>
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1258,7 +1258,7 @@
         <div class="cert-issuer">AUTODESK</div>
       </div>
     </div>
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1268,7 +1268,7 @@
         <div class="cert-issuer">ANSYS</div>
       </div>
     </div>
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1278,7 +1278,7 @@
         <div class="cert-issuer">AUTODESK</div>
       </div>
     </div>
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1288,7 +1288,7 @@
         <div class="cert-issuer">BRIGHTCHAMPS</div>
       </div>
     </div>
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1298,7 +1298,7 @@
         <div class="cert-issuer">BRIGHTCHAMPS</div>
       </div>
     </div>
-
+ 
     <div class="cert-item reveal">
       <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="8" r="6"/><path d="M12 14v7M9 18h6"/>
@@ -1308,15 +1308,15 @@
         <div class="cert-issuer">BRIGHTCHAMPS</div>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <footer>
   <div>SAHIL VISHAL SHAH · B.TECH MECHANICAL ENGINEERING · VIT VELLORE</div>
   <div style="margin-top:8px; color: var(--border);">[ END OF FILE ]</div>
 </footer>
-
+ 
 <script>
   // Mobile menu
   function toggleMenu() {
@@ -1325,7 +1325,7 @@
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
   }
-
+ 
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1338,7 +1338,7 @@
       }
     });
   }, { threshold: 0.12 });
-
+ 
   revealEls.forEach((el, i) => {
     el.dataset.delay = i % 4;
     observer.observe(el);
@@ -1346,3 +1346,4 @@
 </script>
 </body>
 </html>
+ 
