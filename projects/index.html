@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/site.css"></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <header><div class="wrap"><a class="logo" href="/">sahil<span>.</span>shah</a>
-<nav><a href="/projects/" aria-current="page"><sup>01</sup>Projects</a><a href="/work/"><sup>02</sup>Work</a><a href="/about/"><sup>03</sup>About</a></nav>
+<nav><a href="/projects/" aria-current="page"><sup>01</sup>Beyond the drawing board.</a><a href="/work/"><sup>02</sup>Work</a><a href="/about/"><sup>03</sup>About</a></nav>
 <div class="actions"><button class="search-btn" type="button" data-palette aria-label="Search the site">Search <kbd>Ctrl K</kbd></button><a class="cta" href="mailto:sahilshah4040@gmail.com">Get in touch</a></div></div></header>
 <main id="main"><div class="wrap page">
 <h1>Projects</h1><p class="lead" style="margin-bottom:40px">Simulation and controls work, newest first. Each one started with a question a prototype would answer slowly.</p>
@@ -13,33 +13,30 @@
 <article class="feat" id="scramjet-bo">
 <a class="shot" href="#scramjet-bo"><img src="/images/projects/scramjet-bo.png" alt="Bayesian optimization of scramjet isolator geometry" loading="lazy" onerror="this.outerHTML='<span class=ph-shot>Add scramjet-bo.png</span>'"></a>
 <div><div class="meta"><b>01</b><span>2026</span><span class="status" style="margin:0">Ongoing</span></div>
-<h2>Bayesian optimization of scramjet isolator geometry</h2><p class="tag">Finding the best design in fewer simulations</p>
+<h2>Bayesian Optimization of Scramjet Isolator Geometry</h2><p class="tag">Finding the best design in fewer simulations</p>
 <p>A Gaussian Process surrogate guides CFD exploration of isolator height against pressure recovery and mass flow rate. On an existing 16-trial CFD dataset, the method finds the best design in far fewer runs than a full manual sweep. The model now recommends the most informative next height to simulate in ANSYS.</p>
-<div class="stats"><div><strong>16</strong>CFD trials in the dataset</div></div>
 <ul class="stack"><li>Bayesian optimization</li><li>Gaussian Process</li><li>ANSYS Fluent</li><li>Python</li></ul>
 <p class="sup">Supervisor: Dr. Prashik Sunil Gaikwad, VIT</p></div></article>
 
 <article class="feat" id="robotic-arm">
 <a class="shot" href="#robotic-arm"><img src="/images/projects/robotic-arm.png" alt="5-DOF robotic arm" loading="lazy" onerror="this.outerHTML='<span class=ph-shot>Add robotic-arm.png</span>'"></a>
 <div><div class="meta"><b>02</b><span>2026</span><span class="status" style="margin:0">Ongoing</span></div>
-<h2>5-DOF robotic arm: design, modeling and control</h2><p class="tag">Simulated step responses checked against real hardware</p>
+<h2>6-DOF robotic arm: design, modeling and control</h2><p class="tag">Simulated step responses checked against real hardware</p>
 <p>Kinematics from Denavit-Hartenberg parameters, dynamics from the Lagrangian, linearized into a state-space model for pole-placement control. Independent-joint PID controllers tuned in MATLAB/Simulink are benchmarked against it. The physical build with servo motors and a microcontroller exposes friction and backlash the model leaves out.</p>
 <ul class="stack"><li>MATLAB / Simulink</li><li>Denavit-Hartenberg</li><li>State-space</li><li>PID</li><li>Servo + microcontroller</li></ul>
-<p class="sup">Supervisor: Dr. Mandala Chinna Obaiah, VIT</p></div></article>
 
 <article class="feat" id="gun-barrel">
 <a class="shot" href="#gun-barrel"><img src="/images/projects/gun-barrel.png" alt="Gun barrel fin heat transfer simulation" loading="lazy" onerror="this.outerHTML='<span class=ph-shot>Add gun-barrel.png</span>'"></a>
 <div><div class="meta"><b>03</b><span>2025</span><span class="status" style="margin:0">Ongoing</span></div>
-<h2>Heat transfer from a gun barrel</h2><p class="tag">Which fin shape cools a 5.56mm barrel best?</p>
+<h2>Comparative Thermo-Structural Analysis of V, L, and Y-Fin Machine Gun Barrels Under Sustained Fire Cook-Off Conditions</h2><p class="tag">Which fin shape cools a 5.56mm barrel best?</p>
 <p>A comparative FEA study of V, L, Y and T fin configurations on a 5.56mm NATO-caliber barrel. Stress singularities at the fin roots led me to write an ANSYS Fluent UDF for a periodic mass-flow inlet that captures transient heat flux. Co-authored with Pratham Vashistha, targeting a Q1/Q2 journal.</p>
-<div class="stats"><div><strong>4</strong>fin shapes compared</div></div>
 <ul class="stack"><li>ANSYS Fluent</li><li>FEA</li><li>UDF (C)</li><li>Thermal-structural</li></ul>
 <p class="sup">Supervisor: Dr. Rajesh Kanna, VIT</p></div></article>
 
 <article class="feat" id="scramjet-cfd">
 <a class="shot" href="#scramjet-cfd"><img src="/images/projects/scramjet-cfd.png" alt="Scramjet isolator CFD contour" loading="lazy" onerror="this.outerHTML='<span class=ph-shot>Add scramjet-cfd.png</span>'"></a>
 <div><div class="meta"><b>04</b><span>2025</span><span class="status" style="margin:0">Ongoing</span></div>
-<h2>Scramjet engine performance with CFD</h2><p class="tag">Seven isolator heights, one clear optimum</p>
+<h2>Enhancement of Performance of a Scramjet Engine using CFD </h2><p class="tag">Several isolator heights, one clear optimum</p>
 <p>ANSYS Fluent study of shock-boundary layer interactions across seven isolator heights and their effect on mass flow rate and pressure recovery. The 0.40" configuration gave the best balance of mass-conservation error and pressure recovery. The dataset now feeds the Bayesian optimization project above.</p>
 <div class="stats"><div><strong>7</strong>isolator heights</div><div><strong>0.40"</strong>optimum height</div></div>
 <ul class="stack"><li>ANSYS Fluent</li><li>ICEM CFD</li><li>Hypersonics</li></ul>
@@ -47,7 +44,7 @@
 
 <section class="research feature" id="review-paper" aria-label="Review paper">
 <a class="shot" href="#review-paper"><img src="/images/projects/review-paper.png" alt="Fighter jet engine comparison figure" loading="lazy" onerror="this.outerHTML='<span class=ph-shot>Add review-paper.png</span>'"></a>
-<div class="col"><small>review paper</small><h3>Comparative analysis of fighter jet engine performance across countries</h3>
+<div class="col"><small>Review paper</small><h3>Comparative analysis of fighter jet engine performance across countries</h3>
 <p>Mathematical modeling of engine efficiency as a function of inlet losses and flight Mach number. Compares how inlet design, operating regime and design philosophy shape propulsion efficiency, and points out gaps in open-literature comparisons.</p>
 <a class="btn primary" href="https://drive.google.com/file/d/1XifzR8JnTQxOH3r7nvrmRLra52rKJCm0/view?usp=sharing">Read the paper</a></div></section>
 
@@ -55,7 +52,7 @@
 <div class="grid">
 <article class="card"><img src="/drs-wind-tunnel.png" alt="Wind tunnel prototype of the drag reduction system" loading="lazy" onerror="this.remove()"><div class="in"><small>2025 · Completed</small><h3>Airflow through an F1-style Drag Reduction System</h3><p>CAD, SimScale CFD and a wind-tunnel prototype. At 250 km/h the simulation showed a 44% drag reduction and a 54% downforce drop with DRS open.</p><a class="go" href="https://www.youtube.com/watch?v=X-3TccOcbLE">Watch the demo</a></div></article>
 <article class="card"><img src="/obstacle-robot-photo.png" alt="Assembled obstacle-avoiding robot" loading="lazy" onerror="this.remove()"><div class="in"><small>Completed</small><h3>Obstacle-avoiding robot</h3><p>Arduino UNO robot that scans with an HC-SR04 sensor on an SG90 servo and steers two DC motors through an L298N driver. Designed and simulated in Tinkercad first.</p></div></article>
-<article class="card"><img src="/images/projects/am-heat-exchanger.png" alt="Additively manufactured heat exchanger" loading="lazy" onerror="this.remove()"><div class="in"><small>2026 · Ongoing</small><h3>Additively manufactured heat exchangers</h3><p>A systematic review of SLM, binder jetting and SLA heat exchangers: TPMS lattices, gyroids and conformal channels that shell-and-tube designs cannot make. Supervisor: Dr. Govindha Rasu N, HOD.</p></div></article>
+<article class="card"><img src="/images/projects/am-heat-exchanger.png" alt="Additively manufactured heat exchanger" loading="lazy" onerror="this.remove()"><div class="in"><small>2026 · Ongoing</small><h3>Additively manufactured heat exchangers</h3><p>A systematic review of SLM, binder jetting and SLA heat exchangers: TPMS lattices, gyroids and conformal channels that shell-and-tube designs cannot make.</p></div></article>
 </div>
 </div></main>
 <footer><div class="wrap"><div>Mechanical engineering student, Vellore, India<br>© 2026 Sahil Vishal Shah</div>
