@@ -1,0 +1,31 @@
+.case{max-width:1100px;margin:0 auto;padding:48px 24px 80px}
+.case .back{font:400 13px/1 "IBM Plex Mono",monospace;color:#8a9199;text-decoration:none}
+.case .back:hover{color:#fff}
+.case .meta{display:flex;gap:14px;align-items:center;margin:28px 0 14px;font:400 13px "IBM Plex Mono",monospace;color:#8a9199}
+.case .meta b{color:#e8643c;font-weight:400}
+.case h1{font:700 clamp(32px,5vw,52px)/1.08 "Bricolage Grotesque",sans-serif;margin:0 0 16px;color:#f2f4f5}
+.case .lead{font:400 18px/1.6 "IBM Plex Sans",sans-serif;color:#b4bbc2;max-width:720px;margin:0 0 20px}
+.case .stack{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 14px}
+.case .stack li{font:400 12px "IBM Plex Mono",monospace;border:1px solid #2a3036;border-radius:999px;padding:5px 12px;color:#aab1b8}
+.case .sup{font:400 13px "IBM Plex Mono",monospace;color:#8a9199}
+.case .hero{margin:36px 0;border:1px solid #232930;border-radius:12px;overflow:hidden;background:#12161a}
+.case .hero img{display:block;width:100%;height:auto}
+.case .ph-shot{display:block;padding:80px 20px;text-align:center;color:#6b737b;font:13px "IBM Plex Mono",monospace}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:start}
+.prose h2{display:flex;gap:12px;align-items:baseline;font:700 22px "Bricolage Grotesque",sans-serif;color:#f2f4f5;margin:36px 0 10px}
+.prose h2:first-child{margin-top:0}
+.prose h2 span{font:400 12px "IBM Plex Mono",monospace;color:#e8643c}
+.prose p{font:400 16px/1.75 "IBM Plex Sans",sans-serif;color:#b4bbc2;margin:0}
+.side{border-left:1px solid #232930;padding-left:28px;position:sticky;top:90px}
+.side h3{font:400 11px "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#e8643c;margin:0 0 12px}
+.side ul{list-style:none;padding:0;margin:0 0 28px}
+.side li{font:400 14px/1.55 "IBM Plex Sans",sans-serif;color:#b4bbc2;padding:8px 0;border-bottom:1px solid #1c2127}
+.side b{color:#f2f4f5;font-weight:500}.side a{color:#e8643c;text-decoration:none}
+.fill{display:inline-block;background:rgba(232,100,60,.12);border:1px dashed #e8643c;color:#f0a58c;border-radius:4px;padding:1px 8px;font:12px "IBM Plex Mono",monospace}
+.figs{margin-top:48px}.figs figure{margin:0 0 24px}.figs figcaption{font:12px "IBM Plex Mono",monospace;color:#8a9199;margin-top:8px}
+@media(max-width:860px){.cols{grid-template-columns:1fr;gap:32px}.side{border-left:0;padding-left:0;position:static}}
+
+/* Orange "Case study →" links on the projects page */
+.feat a.go,.research a.go{color:#f07a3c;text-decoration:none;font-weight:500;display:inline-block;margin-top:6px}
+.feat a.go:hover,.research a.go:hover{color:#ff9a5e;text-decoration:underline;text-underline-offset:4px}
+.research a.go{margin-left:14px}
